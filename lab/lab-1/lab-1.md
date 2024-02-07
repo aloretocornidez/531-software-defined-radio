@@ -144,5 +144,54 @@ results as well. However, with different magnitudes. In addition, we can also
 begin to see the rotation of the points as they are being traced. It almost
 looks like the output from a curve tracer if you have every used those.
 
+![Screenshot of the Constellation Diagram with 0 Phase and Magnitude](../../assets/imgs/lower-magnitude-constellation.png)
+
+![Adding Phase to the Constellation Diagram](../../assets/imgs/phase-added-constellation.png)
+
+![Screenshot of the Constellation After Increasing the Magnitude](../../assets/imgs/lower-sample-constellation.png)
+
+![Screenshot of the Constellation Diagram with a Higher Sample Rate](../../assets/imgs/curve-tracer-lookin-thing.png)
+
+## Part 3.6 | Adding Noise
+
+![SFG After adding the noise source](../../assets/imgs/noise-source.png)
+
+Before typing out my thoughts, take a look at the three graphs:
+
+![Time Sink After Adding Noise](assets/imgs/noise-time.png)
+
+![Frequency Sink After Adding Noise](assets/imgs/freq-sink-after-noise.png)
+
+![Constellation Diagram After Adding Noise](assets/imgs/constellation-noise-sink.png)
+
+The diagrams are heavily modified when compared to their non-noise containing
+counterparts.
+
+First, the time sink has the most obvious straightforward change. Mostly, the
+signal stops looking like a sine wave and begins to look more like a random
+wave. The trigger that I set in the time sink also has a hard time linking up
+the wave so it is constantly shifting when trying to look at it in the time sink
+module.
+
+The frequency sink is also different, however it may not look like this is the
+case at first sight. However, upon close examination, you can see that the
+frequency ranges that are not in our interest, that is, everything that is not
+at or near 2kHz has a higher relative magnitude when compared to the previous
+magnitude values in previous sections of the lab. This is because the noise
+introduces more frequency components in the signal that is evaluated and thus,
+the signal that we are interested is less powerful. (Relative to all of the
+frequency components contained in the signal.)
+
+The constellation diagram is messed up completely. Since our noise source does
+not have a focused frequency range, we don't get a nice oval now. Instead, we
+have random points that are constantly changing. However, if we zoom out we can
+see that all of the points are still centered about the origin of the
+constellation diagram.
+
+![The Points on the constellation diagram centered about the origin](assets/imgs/centered-about-origin-constellation.png)
+
+
+## Part 3.7 | Interpolation and Decimation 
+
 
 
