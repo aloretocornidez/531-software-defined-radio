@@ -1,6 +1,20 @@
 # ECE 531 | Software Defined Radio
 
-Name: Alan Manuel Loreto Cornídez
+**Lab 1 | Introduction to Software Defined Radio**
+
+**Student Name** | Alan Manuel Loreto Cornídez
+
+**Submission Date** | 02/08/2024
+
+\newpage
+
+\thispagestyle{empty}
+\clearpage
+\tableofcontents
+\pagenumbering{roman}
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
 
 ## Part 3.2 | Sampling Rates
 
@@ -112,7 +126,7 @@ is calculated to the the negative frequency (that is, a phase shift of 2pi).
 This happens when converting a signal from the continuous domain to the digital
 domain.
 
-### Part 3.4.2 | Real Sampled Flowgraph
+### Part 3.4.2 | Real Sampled Flow Graph
 
 When changing the frequency of the signal using 'Real' sampling, the behavior of
 the frequency sink changes in a few ways. For example, as the frequency of the
@@ -190,11 +204,78 @@ constellation diagram.
 
 ![The Points on the constellation diagram centered about the origin](assets/imgs/centered-about-origin-constellation.png)
 
+## Part 3.7 | Interpolation and Decimation
 
-## Part 3.7 | Interpolation and Decimation 
+Below is the constructed signal flow graph.
 
+![Screenshot of the final Signal Flow Graph after it has been constructed.](assets/imgs/decimation-of-the-signal.png)
 
+And the output after running the aforementioned signal flow graph:
 
+![Screenshot of the output of the previously generated signal flow graph.](assets/imgs/freq-time-sink-interpolated.png)
 
+When observing the time and frequency outputs in the GUI sinks, you can see that
+the frequencies are interpreted to be different.
 
+Signal 1 is resampled with with an interpolation of 1 and decimation of 1. This
+makes the output shown in the GUI sinks to be the same as if they weren't used
+at all. However, when examining the other two outputs, we get a different story
+entirely.
 
+Signal 2 has an interpolation of 4 with a decimation of 1. This causes the time
+sink to interpret the frequency of the signal to be $1/4$ of the actual
+frequency, of 250 Hz.
+
+The second signal is affected in a similar way. With an interpolation value of 1
+and a decimation value of 4, we get the inverse situation. This signal is
+interpreted to be at a frequency of 4kHz instead.
+
+## Questions
+
+1. What are the benefits of using in-phase and quadrature (I & Q) samples for
+   SDR? Fully describe at least three benefits of IQ sampling.
+
+   - You remove the 'negative' frequencies that are present in the frequency
+     response.
+   - Allows for base-band processing of a signal.
+   - Allows for signal processing sample rates to be lowered.
+
+2. In GNU Radio What is the Throttle block for? When should it be used? What
+   happens if you use more than one throttle block? When is a throttle block
+   unnecessary?
+
+   - The throttle block used to limit the sample rate of a signal flow graph if
+     one isn't already present. (Usually Hardware). Using more than one throttle
+     block is not advised ever. This can cause lag in the signal processing of
+     the chain. You do not need to use a throttle block if there is already a
+     rate limiting block in your signal flow graph (like a microphone or an
+     SDR).
+
+3. What are Nyquist zones? How are they useful with software-defined radio?
+
+   - According to
+     [Science Direct](https://www.sciencedirect.com/topics/engineering/nyquist-frequency),
+     Nyquist zones subdivide the frequency spectrum into sections that span the
+     length of the integer multiples of the sample rate used in the signal
+     chain. Odd numbered Nyquist zones contain a replica of the frequency
+     spectra while odd numbered Nyquist zones contain a mirror frequency
+     spectra.
+
+4. Why is dither noise used on Digital-to-Analog converter (DAC) circuits?
+
+   - Dither is added to DAC circuits to reduce quantization error that is
+     present in the digital to analog conversions. This works because the noise
+     is not correlated with time or the input signal, and is a constant factor.
+
+## Conclusion
+
+This lab was a good way to 'get my feet wet' with the gnuradio software. It was
+useful by allowing me to set up the software on my linux system. From the DSP
+part, gnuradio is a good platform to test a lot of the simple questions that I
+may think of, such as how sample rates and buffer sizes affect the interpreted
+frequency of a signal. One of the most interesting aspect about this lab was the
+sample rate affecting the amplitude of the time domain response in the signals.
+I remember doing an internship where they would use sample rates on switching
+amplifiers to be 10x the highest frequency of interest and I always wondered why
+we didn't use the Nyquist frequency instead. All in all, there was tons of
+learning all around and I'm excited to learn more.
