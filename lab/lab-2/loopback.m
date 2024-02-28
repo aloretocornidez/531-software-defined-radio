@@ -5,7 +5,7 @@ gainSource = 'Manual';
 % gainSource = 'AGC Slow Attack';
 % gainSource = 'AGC Fast Attack';
 
-gainValue = 30;
+gainValue = 20;
 
 % Setup Receiver
 rx=sdrrx('Pluto','OutputDataType','double','SamplesPerFrame',2^15, 'GainSource', gainSource, 'Gain', gainValue);
@@ -13,11 +13,16 @@ rx=sdrrx('Pluto','OutputDataType','double','SamplesPerFrame',2^15, 'GainSource',
 % rx=sdrrx('Pluto','OutputDataType','double','SamplesPerFrame',2^15); % original
 
 % Setup Transmitter
-tx = sdrtx('Pluto','Gain', -30);
+recieveGain = -30;
+tx = sdrtx('Pluto','Gain', recieveGain);
 
 % Transmit sinewave
 sine = dsp.SineWave('Frequency',300, 'SampleRate',rx.BasebandSampleRate, 'SamplesPerFrame', 2^12, 'ComplexOutput', true);
 % sine = dsp.NCO('OutputDataType', 'double', 'Waveform', 'Complex exponential','Dither', true);
+
+
+% sine = imnoise(sine(), 'gaussian',  0.005);
+
 
 tx.transmitRepeat(sine()); % Transmit continuously
 
