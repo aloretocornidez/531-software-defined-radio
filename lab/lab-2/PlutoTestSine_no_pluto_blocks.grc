@@ -551,7 +551,7 @@ blocks:
     bus_structure: null
     coordinate: [1352, 168.0]
     rotation: 0
-    state: enabled
+    state: disabled
 
 connections:
 - [analog_sig_source_x_0, '0', iio_pluto_sink_0, '0']
