@@ -54,11 +54,7 @@ Three goals for using these techniques:
 Using the following matlab script to generate each frequency response graph:
 
 ```matlab
-% ECE 531 Lab 5 | Digital Modulation: Symbol Synchronization
-% Name: Alan Manuel Loreto Cornidez
-% Date: March 31st, 2024
 % set up filter parameters
-
 beta = 0.25;
 span = 6;
 sps= 4;
@@ -90,7 +86,7 @@ $\beta = 1$:
 
 
 3. Generate transmit and receive plots similar to Figure 3 with $\beta \in [0.1, 0.5, 0.9]$ and discuss the time domain effect
-   - 
+   - TODO
 
 ## 3 | Timing Error
 
