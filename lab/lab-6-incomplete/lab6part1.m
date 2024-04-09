@@ -47,7 +47,8 @@ for k=1:frameSize:numSamples*filterUpsample
     % Visualize Error
     step(sa,[noisyData(timeIndex),offsetData(timeIndex)]);pause(0.1); %#ok<*UNRCH>
 
-end
+end 
+
 %% Plot
 df = sampleRateHz/frameSize;
 frequencies = -sampleRateHz/2:df:sampleRateHz/2-df;
@@ -58,3 +59,42 @@ grid on;xlabel('Frequency (Hz)');ylabel('PSD (dB)');
 legend('Original','Offset','Location','Best');
 NumTicks = 5;L = h(1).Parent.XLim;
 set(h(1).Parent,'XTick',linspace(L(1),L(2),NumTicks))
+
+
+
+
+%% My Implementation of the function
+function correctedSignal = coarseFrequencyCorrection(recievedSignal)
+  % Perform FFT on the received signal
+  N = length(receivedSignal);
+  fftSignal = fftshift(fft(receivedSignal));
+
+
+  % Frequency vector
+  freqVector = linspace(-sampleRate/2, sampleRate/2, N);
+
+
+  % Find the peak in the FFT (assuming dominant carrier presence)
+  [~, peakIndex] = max(abs(fftSignal));
+  freqOffset = freqVector(peakIndex);
+
+
+
+
+
+  sum = 0;
+  for n = N
+
+
+
+  end
+
+  fknaut = 1/(2 * K * T) * argmax * (sum);
+
+
+correctedSignal = receivedSignal .* correctionSignal;
+
+
+
+end
+
