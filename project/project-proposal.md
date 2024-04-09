@@ -1,12 +1,12 @@
 ---
 title: Project Proposal | Software Defined Radio
-date: April 7th, 2024
+date: April 8th, 2024
 author: Alan Manuel Loreto Cornídez, Jeremy Sharp
 output: pdf_document
 ---
 
-\newpage \thispagestyle{empty} \clearpage \tableofcontents \pagenumbering{roman}
-\clearpage \pagenumbering{arabic} \setcounter{page}{1}
+<!-- \newpage \thispagestyle{empty} \clearpage \tableofcontents \pagenumbering{roman} -->
+<!-- \clearpage \pagenumbering{arabic} \setcounter{page}{1} -->
 
 # Project Synopsis
 
