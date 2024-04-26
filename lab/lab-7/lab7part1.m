@@ -7,7 +7,18 @@ gapLen = 100;
 gapLenEnd = 200;
 gen = @(Len) 2*randi([0 1],Len,1)-1;
 y = [gen(gapLen); seq; gen(gapLenEnd)];
-corr = xcorr(y,seq);
+
+
+%% Original xcorr function
+% corr = xcorr(y,seq);
+
+%% Redoing the xcorr function with a filter instead of the xcorr function
+size = 2 * length(y) - 1;
+B = padarray(seq, size - length(seq), "post");
+Y = padarray(y, size - length(y), "post");
+corr = filter2(B, Y);
+
+
 L = length(corr);
 [v,i] = max(corr);
 
