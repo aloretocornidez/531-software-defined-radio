@@ -12,7 +12,16 @@ author: Alan Manuel Loreto Cornídez
 
 ## Build your own CW radar with the PlutoSDR. What target(s) did you test against? Discuss results and observations in your lab report.
 
-<!-- TODO -->
+I worked with a friend to complete this lab. First we created an oscillating
+signal that is sent as an output from the Pluto. The generated signal and the
+received signal are then sent as inputs into AGC blocks. Using two automatic
+gain control blocks (AGC) we can adjust the gain for the signals to not
+overpower the inputs (since our antennas on the Pluto are very close), we input
+the signal into the Multiply Conjugate block. This signal is then passed into a
+lowpass filter through to a waterfall sing, this lets us visually see the output
+of the Doppler effect in the CW radar on the Pluto's antennas.
+
+![The GNURadio signal flow graph.](./gnu-radio-sfg.png)
 
 ## Explain more than one reason for the strong return at zero Hertz (DC)?
 
@@ -65,8 +74,6 @@ This information is from
 
 ## What is the approximate angular velocity of the objects measured?
 
-<!-- TODO -->
-
 From the formula given above, we can measure the velocity of the ojects that I
 measure, such as my hand moving back and forth, in this case, my had will cause
 a Hz reading that goes from $0$ Hz to $400$ in about 0.4 seconds, so, let's plug
@@ -80,14 +87,23 @@ $$
 
 # Conclusion
 
-<!-- TODO -->
-
 As a car enthusiast, I learned how I can make a radar jammer using my
 ADALM-Pluto today, as a law abiding student, I have learned that it is easy to
-break the law throughout the course of the semester and that I have to be
-careful when transmitting signals in any way.
+break the law throughout the course of the semester. I have learned that I have
+to be careful when and that I have to be careful when transmitting signals in
+any way, even if it is only for fun. Implementing the CW Radar on the Pluto
+brought a very practical perspective of physics into reality and it was cool to
+finally see the theory being practiced in real life. Though the application for
+SDR on the Pluto may be simple, the CW radar has applications in many spaces of
+engineering. One of the most interesting applications that I found was the use
+of CW radar to detect surface-to-air missile systems. This is important in the
+modern day because being able to detect a missile as early as possible allows
+leadership to act with as much time as possible. In addition, I also found it
+interesting (in my wikipedia rabbit hold) that continuous wave radar is not the
+only application of Dopper style radar. The idea of pulsed wave radar also came
+up, and those topics were also interesting.
 
-
-
-
-$$ $$
+I digress, overall, the topics learned throughout the course have been a great
+way to look into the practical applications of all of the digital signal
+processing, control theory, and computer programming that I have learned over
+the years as a student.

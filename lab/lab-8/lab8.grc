@@ -11,7 +11,7 @@ options:
     gen_linking: dynamic
     generate_options: qt_gui
     hier_block_src_path: '.:'
-    id: radar1
+    id: lab8
     max_nouts: '0'
     output_language: python
     placement: (0,0)
@@ -22,7 +22,7 @@ options:
     run_options: prompt
     sizing_mode: fixed
     thread_safe_setters: ''
-    title: Radar 1
+    title: Lab 8
     window_size: (1000,1000)
   states:
     bus_sink: false
@@ -86,7 +86,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [592, 308.0]
+    coordinate: [592, 304.0]
     rotation: 0
     state: true
 - name: analog_agc_xx_1
@@ -106,7 +106,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [592, 420.0]
+    coordinate: [592, 448.0]
     rotation: 0
     state: true
 - name: analog_sig_source_x_0
@@ -122,13 +122,14 @@ blocks:
     offset: '0'
     phase: '0'
     samp_rate: samp_rate
+    showports: 'False'
     type: complex
     waveform: analog.GR_COS_WAVE
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [360, 196.0]
+    coordinate: [248, 184.0]
     rotation: 0
     state: true
 - name: blocks_multiply_conjugate_cc_0
@@ -170,7 +171,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [824, 180.0]
+    coordinate: [832, 164.0]
     rotation: 0
     state: true
 - name: iio_pluto_source_0
@@ -201,7 +202,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [360, 372.0]
+    coordinate: [264, 396.0]
     rotation: 0
     state: true
 - name: low_pass_filter_0
@@ -225,7 +226,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1048, 356.0]
+    coordinate: [1064, 348.0]
     rotation: 0
     state: true
 - name: qtgui_waterfall_sink_x_0
@@ -286,7 +287,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1256, 388.0]
+    coordinate: [1304, 384.0]
     rotation: 0
     state: true
 
@@ -301,3 +302,4 @@ connections:
 
 metadata:
   file_format: 1
+  grc_version: 3.10.9.2
